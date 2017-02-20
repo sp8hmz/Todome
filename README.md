@@ -1,6 +1,6 @@
 # Todome for iOS
 
-[![License](http://img.shields.io/badge/License-MIT-green.svg?style=flat)](https://github.com/sp8hmz/Todome/master/LICENSE)
+[![License](http://img.shields.io/badge/License-MIT-green.svg?style=flat)](https://github.com/sp8hmz/Todome/blob/master/LICENSE)
 [![Swift 3](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://swift.org)
 
 
@@ -10,7 +10,6 @@ Todome is a real time todo app based on Firebase developed by [Karol Karczewski]
 Todome allows you to handle all your todos organized in projects.
 
 <p align="center">
-<img src="Screenshots/screenshot1.png" width="300"/>
 <img src="Screenshots/screenshot2.png" width="300"/>
 <img src="Screenshots/screenshot3.png" width="300"/>
 </p>
