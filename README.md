@@ -10,8 +10,8 @@ Todome is a real time todo app based on Firebase developed by [Karol Karczewski]
 Todome allows you to handle all your todos organized in projects.
 
 <p align="center">
-<img src="Screenshots/screenshot2.png" width="300"/>
 <img src="Screenshots/screenshot3.png" width="300"/>
+<img src="Screenshots/screenshot2.png" width="300"/>
 </p>
 
 ## Getting Started
