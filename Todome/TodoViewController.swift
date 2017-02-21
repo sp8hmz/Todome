@@ -44,8 +44,8 @@ class TodoViewController: UIViewController, UITableViewDelegate, UITableViewData
             sections = 1
         } else {
             let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: todoTableView.bounds.size.width, height: todoTableView.bounds.size.height))
-            noDataLabel.text          = "You have no todos here"
-            noDataLabel.textColor     = UIColor.black
+            noDataLabel.text = "You have no todos here"
+            noDataLabel.textColor = UIColor.black
             noDataLabel.textAlignment = .center
             self.todoTableView.backgroundView  = noDataLabel
             self.todoTableView.separatorStyle  = .none
@@ -78,7 +78,6 @@ class TodoViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let editTextField = alert!.textFields![0]
                 if editTextField.text?.isEmpty == false && editTextField.text != self.todos[indexPath.row].content {
                     Todo.editContent(project: self.project!, todo: self.todos[indexPath.row], newContent: editTextField.text!)
-                    print("Text field: \(editTextField.text)")
                 } else {
                 }
             }))

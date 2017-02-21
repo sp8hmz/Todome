@@ -104,4 +104,24 @@ class User {
             completion(error)
         })
     }
+    
+    class func deleteUser() {
+        
+    }
+    
+    class func changePassword(newPassword: String, completion: @escaping (Error?) -> Void) {
+        FIRAuth.auth()?.currentUser?.updatePassword(newPassword) { (error) in
+            completion(error)
+        }
+    }
+    
+    class func reauthenticate(password: String, completion: @escaping (Error?) -> Void) {
+        if let user = FIRAuth.auth()?.currentUser {
+            let credential = FIREmailPasswordAuthProvider.credential(withEmail: user.email!, password: password)
+            
+            user.reauthenticate(with: credential) { (error) in
+                completion(error)
+            }
+        }
+    }
 }

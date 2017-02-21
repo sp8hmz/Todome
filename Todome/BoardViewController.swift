@@ -49,8 +49,8 @@ class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDat
             sections = 1
         } else {
             let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: projectsTableViewController.bounds.size.width, height: projectsTableViewController.bounds.size.height))
-            noDataLabel.text          = "You have no projects yet."
-            noDataLabel.textColor     = UIColor.black
+            noDataLabel.text = "You have no projects yet."
+            noDataLabel.textColor = UIColor.black
             noDataLabel.textAlignment = .center
             self.projectsTableViewController.backgroundView  = noDataLabel
             self.projectsTableViewController.separatorStyle  = .none
@@ -85,7 +85,6 @@ class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let editTextField = alert!.textFields![0]
                 if editTextField.text?.isEmpty == false && editTextField.text != self.projects[indexPath.row].name {
                     Project.editNameOfProject(project: self.projects[indexPath.row], newName: editTextField.text!)
-                    print("Text field: \(editTextField.text)")
                 } else {
                 }
             }))
@@ -136,7 +135,6 @@ class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var newProjectNameTextField: UITextField!
     
     @IBAction func addProjectButtonPressed(_ sender: Any) {
-        print("ok")
         if newProjectNameTextField.text?.isEmpty == false {
             User.getUserInfo(completion: { (user) in
                 Project.createNewProject(name: self.newProjectNameTextField.text!, owner: user)
