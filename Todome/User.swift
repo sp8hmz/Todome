@@ -105,8 +105,27 @@ class User {
         })
     }
     
-    class func deleteUser() {
-        
+    class func deleteUser(completion: @escaping (Bool) -> Void) {
+        var success = false
+        if let rawUser = FIRAuth.auth()?.currentUser {
+            User.getUserInfo(completion: { (user) in
+                let databaseRef = FIRDatabase.database().reference()
+                databaseRef.child("users").child(user.uid).removeValue(completionBlock: {(error, ref) in
+                    if error == nil {
+                        databaseRef.child("content").child(user.uid).removeValue(completionBlock: { (error, ref) in
+                            if error == nil {
+                                rawUser.delete { (error) in
+                                    if error == nil {
+                                        success = true
+                                        completion(success)
+                                    }
+                                }
+                            }
+                        })
+                    }
+                })
+            })
+        }
     }
     
     class func changePassword(newPassword: String, completion: @escaping (Error?) -> Void) {

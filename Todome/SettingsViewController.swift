@@ -73,5 +73,12 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func deleteAccountButtonPressed(_ sender: Any) {
+        User.deleteUser(completion: { (success) in
+            if success == true {
+                self.performSegue(withIdentifier: "goToSignIn", sender: self)
+            } else {
+                showAlert(title: "Error", message: "An error occured while trying to delete the account.", vc: self)
+            }
+        })
     }
 }
